@@ -14,7 +14,7 @@ namespace CollectionView.MVVM.ViewModels
 
         public DataViewModel()
         {
-            var items = new ObservableCollection<Product>
+            Products = new ObservableCollection<Product>
                {
                     new Product
                      {
@@ -85,7 +85,7 @@ namespace CollectionView.MVVM.ViewModels
                      {
                          Name = "Snack",
                          Price = 25.0m,
-                         Image = "009_snack.png",
+                         Image = "snack.png",
                          HasOffer = false,
                          Stock = 2
                      },
@@ -185,7 +185,7 @@ namespace CollectionView.MVVM.ViewModels
                      {
                          Name = "Oil Bottle",
                          Price = 152.0m,
-                         Image = "oil_bottle",
+                         Image = "oil_bottle.png",
                          HasOffer = false,
                          Stock = 87
                      },
