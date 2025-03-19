@@ -3,8 +3,19 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              >
+    
     <DataTemplate x:Key="ProductStyle">
         <!--<Label Text="{Binding Name}"></Label>-->
+
+        <SwipeView>
+            <SwipeView.LeftItems>
+                <SwipeItems>
+                    <SwipeItem BackgroundColor="DarkRed"
+                               Command="{Binding DeleteCommand}"
+                               IconImageSource="dotnet_bot"></SwipeItem>
+                </SwipeItems>
+            </SwipeView.LeftItems>
+            
         <Grid Margin="15,10,15,0"
               ColumnDefinitions=".1*,.2*,.7*"
               RowDefinitions="*,*">
@@ -41,6 +52,8 @@ Text="{Binding Price, StringFormat= '{0:C}'}"
 TextColor="Black"
 VerticalOptions="Center"></Label>
         </Grid>
+
+        </SwipeView>
     </DataTemplate>
 
     <DataTemplate x:Key="OfferStyle">
