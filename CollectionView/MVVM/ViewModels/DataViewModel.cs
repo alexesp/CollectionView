@@ -4,15 +4,32 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using CollectionView.MVVM.Models;
+using PropertyChanged;
 
 namespace CollectionView.MVVM.ViewModels
 {
+    [AddINotifyPropertyChangedInterface]
     public class DataViewModel
     {
         public ObservableCollection<Product> Products { get; set; }
+        public bool IsRefreshing { get; set; }
+        public ICommand RefreshCommand =>
+            new Command(async () =>
+            {
+                IsRefreshing = true;
+                await Task.Delay(3000);
+                RefreshItems();
+                IsRefreshing = false;
+            });
 
         public DataViewModel()
+        {
+            RefreshItems();
+        }
+
+        private void RefreshItems()
         {
             Products = new ObservableCollection<Product>
                {
